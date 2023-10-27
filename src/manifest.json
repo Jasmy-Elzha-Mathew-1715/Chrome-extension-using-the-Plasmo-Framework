@@ -28,7 +28,7 @@
     "run_at": "document_end"
   },
   "permissions": ["activeTab", "contextMenus", "storage"],
-  "content_security_policy": "script-src 'self' https://your-backend-api.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' "URL of Backend API" object-src 'self'",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
