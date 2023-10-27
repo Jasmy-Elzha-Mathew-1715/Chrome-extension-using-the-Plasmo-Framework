@@ -22,16 +22,27 @@ document.addEventListener('DOMContentLoaded', function () {
   translateButton.addEventListener('click', function () {
     var word = selectedWord.textContent;
     // Replace with your backend API endpoint for translation
-    var apiUrl = 'https://your-backend-api.com/translations?word=' + word + '&target_language=fr';
+    var apiUrl = 'Give URL of backend API' + word + '&target_language=fr';
     
     // Send a request to your backend API
     fetch(apiUrl)
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response was not OK');
+        }
+      })
       .then(data => {
-        translationResult.textContent = 'Translation: ' + data.translation;
+        if (data.translation) {
+          translationResult.textContent = 'Translation: ' + data.translation;
+        } else {
+          translationResult.textContent = 'Translation not available.';
+        }
       })
       .catch(error => {
-        translationResult.textContent = 'Translation not available.';
+        console.error('Error:', error);
+        translationResult.textContent = 'Error: Unable to fetch translation.';
       });
   });
 });
