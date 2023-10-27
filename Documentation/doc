@@ -1,0 +1,32 @@
+1. Introduction
+The Chrome Extension for Word Translation allows users to capture selected words on web pages and translate them using a backend API. This documentation provides an overview of the extension's code components, usage, and error handling.
+
+2. Extension Components
+The extension consists of several components:
+
+2.1 Manifest File
+The manifest.json file defines the extension's metadata, permissions, and components. It specifies the extension's name, version, and key components.
+
+2.2 Popup HTML
+The popup.html file is an HTML document that serves as the popup when the extension icon is clicked. It displays the selected word and translation result to the user.
+
+2.3 Popup JavaScript
+The popup.js file is responsible for capturing selected words, handling user interactions, and making network requests to the backend API for translation.
+
+2.4 Content Script
+The content.js file is a content script injected into active web pages. It captures selected words and sends them to the popup JavaScript for processing.
+
+3. Usage
+To use the extension:
+
+Click on the extension icon in the Chrome toolbar to open the popup.
+Select a word on a webpage using the mouse.
+The selected word is displayed in the popup.
+Click the "Translate" button to send a translation request to the backend API.
+The translation result is displayed in the popup.
+  
+4. Error Handling
+The extension includes basic error handling for network requests to the backend API:
+
+If the network request fails (e.g., due to a network error or an invalid API response), an error message is displayed in the popup, and the error is logged to the browser's console.
+  
